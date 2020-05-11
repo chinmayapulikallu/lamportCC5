@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 // THIS COMPONENT IS OUR STATUS PAGE
 // YOU SHOULD DISPLAY THE CURRENT SPEED FROM SECTION ONE
@@ -10,11 +11,12 @@ class Dashboard extends Component {
       <div>
         <h2>Dashboard</h2>
         
-        <p>SPEED: GOES HERE</p>
+    <p>SPEED: {this.props.reduxState.count}</p>
         <p>PASSENGER COUNT: GOES HERE</p>
       </div>
     )
   }
 }
 
-export default Dashboard;
+const putReduxStateOnProps = (reduxState) => ({ reduxState })
+export default connect(putReduxStateOnProps)(Dashboard);
